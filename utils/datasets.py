@@ -255,7 +255,7 @@ def get_image_pairs(dataset_filepath, nb_max, pairs_of_same_imgs=False,
                 end: End of the range (excluding).
             Returns:
                 Count of people with x images where start<=x<end."""
-            names = [name for name, images in images_by_person.iteritems() \
+            names = [name for name, images in images_by_person.items() \
                           if len(images) >= start and len(images) < end]
             return len(names)
 
@@ -284,7 +284,7 @@ def get_image_pairs(dataset_filepath, nb_max, pairs_of_same_imgs=False,
     #     with at least 2 images
     names = []
     names_gte2 = []
-    for person_name, images in images_by_person.iteritems():
+    for person_name, images in images_by_person.items():
         names.append(person_name)
         if len(images) >= 2:
             names_gte2.append(person_name)
@@ -489,7 +489,7 @@ def plot_dataset_skew(pairs_train, pairs_val, pairs_test, only_y_same=True,
                 name_to_images[pair.image2.person].append(pair.image2)
 
         names_with_counts = [(name, len(images)) for name, images in \
-                             name_to_images.iteritems()]
+                             name_to_images.items()]
         names_with_counts.sort(key=lambda name_with_count: name_with_count[1], \
                                reverse=True)
         names_with_counts = names_with_counts[0:n_highest]
